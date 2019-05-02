@@ -44,7 +44,7 @@ def mon_status_check(conn, logger, hostname, args):
         logger.error(line)
 
     try:
-        return json.loads(b''.join(out).decode('utf-8'))
+        return json.loads((''.join(out).encode()).decode('utf-8'))
     except ValueError:
         return {}
 
